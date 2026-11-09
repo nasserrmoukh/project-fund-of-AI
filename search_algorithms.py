@@ -1,4 +1,5 @@
 """BFS and A* search algorithms for the maze project."""
+
 from collections import deque
 from heapq import heappush, heappop
 from itertools import count
