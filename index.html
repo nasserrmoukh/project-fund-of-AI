@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pathfinder Studio | AI Search Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div class="brand"><span class="logo">✳</span><b>Pathfinder Studio</b><span class="tag">FUNDAMENTALS OF AI</span></div>
+      <span class="ready">● SYSTEM READY</span>
+    </header>
+
+    <section class="hero">
+      <div><small>AI SEARCH ALGORITHMS</small><h1>Find the <em>best path.</em></h1></div>
+      <span class="grid-size">15 ROWS × 20 COLS</span>
+    </section>
+
+    <section class="layout">
+      <article class="panel board">
+        <div class="panel-title"><h2>Maze playground</h2><span id="wall-count">0 WALLS</span></div>
+        <div class="toolbar">
+          <div class="tools">
+            <button class="tool active" data-mode="wall">✎ Draw</button>
+            <button class="tool" data-mode="erase">⌫ Erase</button>
+            <button class="tool" data-mode="start">S Start</button>
+            <button class="tool" data-mode="goal">G Goal</button>
+          </div>
+          <button class="link" id="clear">Clear walls</button>
+        </div>
+        <div class="maze-wrap"><div id="maze" class="maze" role="grid" aria-label="Interactive maze"></div></div>
+        <div class="legend">
+          <span><i class="s"></i>Start</span><span><i class="g"></i>Goal</span>
+          <span><i class="w"></i>Wall</span><span><i class="e"></i>Explored</span>
+          <span><i class="p"></i>Path</span>
+        </div>
+        <div class="board-foot"><span>CLICK OR DRAG TO EDIT</span><span>15 × 20 GRID</span></div>
+      </article>
+
+      <aside class="right">
+        <section class="panel controls">
+          <div class="panel-title"><h2>Run algorithm</h2><span class="head-icon">⌁</span></div>
+          <button class="algorithm bfs" id="bfs"><span class="alg-icon">B</span><span><b>Breadth-First Search</b><small>Queue · Shortest path</small></span><strong>↗</strong></button>
+          <button class="algorithm astar" id="astar"><span class="alg-icon">A*</span><span><b>A* Search</b><small>Heuristic · Manhattan distance</small></span><strong>↗</strong></button>
+          <div class="speed-row"><label for="speed">Speed</label><b id="speed-label">Medium</b></div>
+          <input id="speed" type="range" min="1" max="3" value="2">
+          <div class="actions"><button id="reset">↺ Reset search</button><button id="random" title="Random maze">⤨</button></div>
+        </section>
+
+        <section class="panel metrics">
+          <div class="panel-title"><h2>Results</h2><span class="live">● LIVE</span></div>
+          <div class="metric-grid">
+            <div class="metric"><small>NODES EXPLORED</small><b id="explored">—</b></div>
+            <div class="metric"><small>PATH COST</small><b id="cost">—</b></div>
+          </div>
+          <div class="status"><span><i id="status-dot"></i> Status</span><b id="status">Ready to run</b></div>
+          <div class="active-alg"><small>ALGORITHM</small><b id="active">None selected</b></div>
+          <div class="compare">
+            <h3>Quick comparison</h3>
+            <div class="compare-row"><span><b>BFS</b></span><div class="bar"><i id="bfsbar"></i></div><strong id="bfsval">—</strong></div>
+            <div class="compare-row"><span><b>A*</b></span><div class="bar"><i id="astarbar"></i></div><strong id="astarval">—</strong></div>
+          </div>
+          <div class="formula"><span> A* FORMULA </span><b>f(n) = g(n) + h(n)</b><small>Cost so far + Manhattan distance</small></div>
+        </section>
+      </aside>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
